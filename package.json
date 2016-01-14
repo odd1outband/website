@@ -4,11 +4,15 @@
   "description": "The home of Odd1Out on the web",
   "main": "index.html",
   "dependencies": {},
-  "devDependencies": {
-    "svgo": "^0.6.1"
-  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:html": "cp src/index.html dist/",
+    "build:css": "cp -r src/css/ dist/css",
+    "build:svg": "svgo -f src/svg -o dist/svg",
+    "build": "npm run build:html && npm run build:css && npm run build:svg",
+    "deploy": "surge dist odd1out.band",
+    "yolo": "npm run build && npm run deploy"
   },
   "repository": {
     "type": "git",
@@ -24,5 +28,5 @@
   "bugs": {
     "url": "https://github.com/odd1outband/website/issues"
   },
-  "homepage": "https://github.com/odd1outband/website#readme"
+  "homepage": "http://odd1out.band"
 }
