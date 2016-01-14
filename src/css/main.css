@@ -1,17 +1,61 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
     box-sizing: border-box;
+    font-size: 62.5%;
 }
 *, *:before, *:after {
     box-sizing: inherit;
 }
 
+@font-face {
+    font-family: "FishAndChips";
+    src: url('../fonts/FishAndChips-Regular.otf'),
+         url('../fonts/fishandchips-regular-webfont.ttf');
+}
+
 body {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: FishAndChips, sans-serif;
     display: flex;
     flex-direction: column;
+    font-size: 4rem;
+    padding: 0 10%;
+}
+
+.video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video iframe,
+.video object,
+.video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    min-width:100%;
+    height:auto;
+}
+
+.logo {
+    width: 22rem;
 }
 
 h1 {
     text-align: center;
+    width: 22rem;
+    display: inline-block;
+    margin: 0 1rem 0 0;
+}
+
+header {
+    border-bottom: 1px solid #ddd;
+    padding-left: 10%;
+    margin-top: 4rem;
 }
