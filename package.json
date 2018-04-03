@@ -4,7 +4,7 @@
   "description": "The home of Odd1Out on the web",
   "main": "index.html",
   "dependencies": {
-    "imagemin": "^5.3.1",
+    "imagemin-cli": "^3.0.0",
     "serve": "^6.5.3",
     "surge": "^0.20.1"
   },
@@ -16,8 +16,8 @@
     "build:html": "cp src/index.html dist",
     "build:css": "cp -r src/css/ dist/",
     "build:fonts": "cp -r src/fonts/ dist/",
-    "build:img": "imagemin src/img dist/img",
-    "build": "mkdir -p dist && npm run build:html && npm run build:css && npm run build:img && npm run build:fonts",
+    "build:img": "imagemin src/img/* --out-dir=dist/img",
+    "build": "npm run clean && mkdir dist && npm run build:html && npm run build:css && npm run build:img && npm run build:fonts",
     "deploy": "surge dist odd1out.band",
     "yolo": "npm run build && npm run deploy"
   },
